@@ -1,0 +1,24 @@
+@charset "utf-8";
+/* CSS Document */
+
+
+.grid{
+	width: 80%;
+	display: flex;
+	margin: 0 auto;
+	margin-top: 5%;
+}
+.grid-item{
+	width:32%;
+	margin:0.4%;
+}
+/* .loading{
+	background:url('http://parandis.ca/images/Preloader.gif') no-repeat center center;
+	height: 100px;
+	width: 100px;
+	position: fixed;
+	z-index: 1000;
+	left: 50%;
+	top: 50%;
+	margin: -25px 0 0 -25px;
+} */

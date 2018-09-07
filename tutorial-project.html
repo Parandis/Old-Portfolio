@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Parandis T. Saheli</title>
+		<link href="https://fonts.googleapis.com/css?family=Lobster|Raleway" rel="stylesheet">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+		<link rel="stylesheet" type="text/css" href="styles/style.css">
+		<link rel="stylesheet" type="text/css" href="styles/style-projects.css">
+		<link rel="stylesheet" type="text/css" href="styles/prism.css">
+		<!-- Global site tag (gtag.js) - Google Analytics -->
+		<script async src="https://www.googletagmanager.com/gtag/js?id=UA-109128378-1"></script>
+		<script>
+				(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+				(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+				m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+				})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+			  
+				ga('create', 'UA-102160523-1', 'auto');
+				ga('send', 'pageview');
+		</script>
+</head>
+<body>
+<main>
+<div class="project" id="project">
+<h2>JavaScript and jQuery Tutorial</h2>
+<img class="project tutorial" src="images/tutorial-project.png" alt="tutorial project screenshot">	
+<p class="info">This is an school project to show how awesome is JavaScript and jQuery. This page suppose to contain 3 different tutorials using HTML, CSS, JavaScript/jQuery, and Photoshop. The first Tutorial is about how to use JavaScript to determine the mouse location to activate the slide-show, the challenge about this part was making sure the slide-show working even when the mouse is moving on top of the pictures. the second project is a combination of CSS animation and JavaScript. The JavaScript part is to find is clicking happening to start the animation and more the Iron items toward magnet.the third one is about sliding images while scrolling down and up and fading images.<br>At that time we weren't familiar with responsive design and the website is designed based on a large screen. All the landscape pictures that is used on the is part of my last works.</p>
+<a href="http://parandis.ca/projects/Tutorial/index.html" target="_blank">Visit Live</a>
+<br>
+<p>My Favourite one on this tutorial was the magnet that included both CSS animation and JavaScript/jQuery.</p>
+
+<p>At first we need to add our img(s) to html...</p>
+<pre class="language-markup">
+<code class="language-markup">
+<script type="prism-html-markup">
+	<div class="tutorial01">
+	<div class="game-sec">
+	<a class="magnet"><img src="images/magnet-312777_640.png" alt="magnet"></a>
+	<div class="items">
+	<a><img src="images/AD_Hammer.png" alt="hammer" class="iron" id="iron"></a>
+	<a><img src="images/download (1).png" alt="dog"></a>
+	<a><img src="images/frying pan face1.png" alt="frying-pan" class="iron" id="iron"></a>
+	<a><img src="images/images.png" alt="cat"></a>
+	<a><img src="images/kawaii_spoon_is_kawaii_by_dotdotdotfreak-da7gpyi.png" alt="spoon" class="iron" id="iron"></a>	
+	<a><img src="images/PNGPIX-COM-Bugs-Bunny-PNG-Transparent-Image.png" alt="bunny"></a>	
+	</div> <!-- end of items --> 
+	</div> <!-- end of game-se-->
+	</div> <!-- end of tutorial-->
+</script></code>
+</pre>		
+
+<p>Then on CSS, they will be positioning absolute to make a circle... </p>
+<pre class="language-css">
+<code class="language-css">
+		.tutorial01{
+			position: relative;
+			display: flex;
+		}
+		.game-sec{
+			display: flex;
+			margin-right: auto;
+			height: 100vh;
+		}
+		.items{
+			display: flex;
+			margin-right: auto;
+			width: 55%;
+			height: 100vh;
+		}
+		.magnet img{
+			position: absolute;
+			top: 360px;
+			left: 5px;
+		}
+		.items img{
+			position: absolute;
+		}
+		.items a:nth-child(1) img{
+			top: 550px;
+			left: 525px;
+		}
+		.items a:nth-child(2) img{
+			top: 220px;
+			left: 440px;
+		}
+		.items a:nth-child(3) img{
+			top: 420px;
+			left: 700px;
+		}
+		.items a:nth-child(4) img{
+			top: 260px;
+			left: 925px;
+		}
+		.items a:nth-child(5) img{
+			top: 130px;
+			left: 710px;
+		}
+		.items a:nth-child(6) img{
+			top: 540px;
+			left: 880px;
+		}
+</code>
+</pre>
+
+<p>After desining everything now it's a time for make them functional...just using a click event and animate to make them what you saw !!!</p> 
+<pre class="language-js">
+<code class="language-js">
+		const $items= $('.items img');
+		const $iron = $('.iron');
+		const $ironStick = $iron.css('left');
+		$items.on("click", function(){
+		    if($(this).hasClass('iron')){
+		        $(this).animate({
+		            left: '13%',
+		            top: '350px' 
+		        }, 1000);
+		    }else{
+		        console.log('not iron');
+		        $(this).fadeOut();
+		    }
+		});
+</code>
+</pre>	
+</div>
+<div class="back">
+		<a href="http://parandis.ca/projects.html">
+			<i class="fa fa-arrow-circle-left" aria-hidden="true"></i>
+		</a>
+</div>
+</main>
+
+
+<footer>
+		<div class="contact" id="contact">
+				<p><h1>Contact</h1><br>If you would like to contact me, feel free to email:<br><br><a href="mailto:parandists@gmail.com">
+				parandists@gmail.com</a><br><br>
+				Also you can follow me on following social media:</p>
+				<div class="social-media">
+				<a href="https://www.linkedin.com/in/parandis-t-saheli/" target="_blank">
+					<i class="fa fa-linkedin-square" aria-hidden="true"></i>
+				</a>
+				
+				<a href="https://www.github.com/Parandis/" target="_blank">
+					<i class="fa fa-github" aria-hidden="true"></i>
+				</a>
+				
+				<a href="https://codepen.io/Parandis/" target="_blank">
+					<i class="fa fa-codepen" aria-hidden="true"></i>
+				</a>
+				
+				<a href="https://twitter.com/parandists" target="_blank">
+					<i class="fa fa-twitter-square" aria-hidden="true"></i>
+				</a>
+				</div>
+		</div>
+</footer>
+<script
+  src="https://code.jquery.com/jquery-3.2.1.min.js"
+  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  crossorigin="anonymous"></script>
+  <script src="scripts/prism.js"></script>
+<script src="scripts/script.js"></script>	
+</body>
+</html>

@@ -1,0 +1,152 @@
+
+@charset "utf-8";
+/* CSS Document */
+
+
+
+.info{
+	font-size: 0.95rem;
+	line-height: 1.5rem;
+	width: 94%;
+	margin:0 auto;
+	margin-bottom: 10%;
+}
+
+.tick{
+	width:13%;
+}
+.icon{
+	width:25%;
+}
+.icons{
+	margin-bottom: 5%;
+}
+.responsive{
+	width:25%;
+	height: 25%;
+}
+
+
+.main{
+	display:flex;
+	flex-direction: column;
+}
+.photography,
+.projects{
+	width:95%;
+	margin: 0 auto;
+	margin-bottom: 20%;
+}
+.photography h1,
+.projects h1{
+	text-align: center;
+}
+
+
+
+
+
+@media  only screen and (min-width:25em){
+	.info{
+		font-size: 1rem;
+		line-height: 1.5rem;
+	}
+	.tick{
+		width:15%;
+	}
+	.icon{
+		width:25%;
+	}
+	.icons{
+		margin-bottom: 2%;
+	}
+	.responsive{
+		width:18%;
+		height: 18%;
+	}
+	.column{
+		float:left;
+		width: 50%;
+	}
+	.skillOne .tick{
+		width:7%;
+		margin-top: -2%;
+	}
+}
+@media  only screen and (min-width:33em){
+	.info{
+		font-size: 1.2rem;
+		width: 90%;
+	}
+}
+
+@media  only screen and (min-width:35em){
+	.tick{
+		width:15%;
+	}
+	.icon{
+		width:28%;
+	}
+	.skills{
+		margin-left:10%;
+	}
+	.skillOne{
+		margin-left: 30%;
+	}
+	.skillOne .tick{
+		width:10%;
+	}
+	.responsive{
+		width:25%;
+		height: 25%;
+		margin-top: 5%;
+	}
+}
+@media  only screen and (min-width:55em){
+	.info{
+		font-size: 1.3rem;
+		line-height: 2.2rem;
+	}
+	.tick{
+		width:18%;
+	}
+	.icon{
+		width:40%;
+	}
+	.icons{
+		margin-bottom: 5%;
+	}
+	.responsive{
+		width:22%;
+		height: 22%;
+	}
+	.column{
+		width: 25%;
+	}
+	.skillOne .tick{
+		width:7%;
+	}
+	.skillOne .icons{
+		margin-left: 15%;
+	}
+}
+@media  only screen and (min-width:61em){
+	.info{
+		width:88%;
+	}
+	.icons{
+		margin-bottom: 10%;
+	}
+}
+@media  only screen and (min-width:77em){
+	.main{
+		display: flex;
+		flex-direction: row;
+		justify-content: space-evenly;
+	}
+	.photography, .projects{
+		width:40%;
+		padding-top: 3%;
+		margin-bottom: 10%;
+	}
+}

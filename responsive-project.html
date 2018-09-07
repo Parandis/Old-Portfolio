@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Parandis T. Saheli</title>
+		<link href="https://fonts.googleapis.com/css?family=Lobster|Raleway" rel="stylesheet">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+		<link rel="stylesheet" type="text/css" href="styles/style.css">
+		<link rel="stylesheet" type="text/css" href="styles/style-projects.css">
+		<link rel="stylesheet" type="text/css" href="styles/prism.css">
+		<!-- Global site tag (gtag.js) - Google Analytics -->
+		<script async src="https://www.googletagmanager.com/gtag/js?id=UA-109128378-1"></script>
+		<script>
+				(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+				(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+				m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+				})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+				
+				ga('create', 'UA-102160523-1', 'auto');
+				ga('send', 'pageview');
+		</script>
+</head>
+<body>
+<main>
+
+<div class="project" id="project">
+<h1>Projects</h1>
+
+<h2>Responsive</h2>
+<img class="project responsive" src="images/responsive-project.png" alt="responsive project screenshot">	
+<p class="info">This project is an single page project with open-subject which is about ColdPlay music group. This Project is based on mobile first and it has 6 break points to help the best usability exprience. The challenge on this project was hero image(banner) and YouTube video that need some extra code and some photoshop skills to have different sizes of hero image to load on different sizes. The Humberger menu on mobile has an animation that worked with jQuery which adding a class to menu(nav bar). Also in this project, it's shown that how it's posiible to use cropped images using source attribute to display better on different device sizes.</p>
+<a href="http://parandis.ca/projects/Responsive/index.html" target="_blank">Visit Live</a>
+<br>
+<p>The technologies that were used on this Project help to get the best result, such as Photoshop, Illustrator, HTML, CSS, and JavaScript/jQuery.</p>
+<p>For the Banner or Hero image, among different ways to do it, in this website which is mobile-first, Source was the best solution. It started from smallest size to largest size. </p>
+<pre class="language-markup">
+<code class="language-markup">
+<script type="prism-html-markup">
+
+
+	<div class="banner">
+     <picture class="header-image">  
+	    <source srcset="images/coldplay-group-photo-blackandwhite-small.jpg" media="(max-width:420px)">
+	    <source srcset="images/coldplay-group-photo-blackandwhite-medium.jpg" media="(max-width: 780px)">
+	    <source srcset="images/coldplay-group-photo-blackandwhite-large.jpg" media="(max-width: 1024px)">
+
+	    <img src="images/coldplay-group-photo-blackandwhite.jpg" alt="Large Header">
+  	 </picture>
+    </div>
+</script></code>
+</pre>	
+
+<p>The interesting about responsive design is that developers can be so creative about their hamburger menus and there are lots of different design that can apply to the website. </p>
+<pre class="language-markup">
+<code class="language-markup">
+<script type="prism-html-markup">
+
+	
+    <div class="btn-mobile-menu">
+        <div class="three col">
+          <div class="hamburger" id="hamburger">
+            <span class="line"></span>
+            <span class="line"></span>
+            <span class="line"></span>
+          </div>
+        </div>
+    </div> 
+</script></code>
+</pre>
+<p>The transition for the hamburger menu was through CSS and all the possible animations that make the movement in lines.</p>
+<pre class="language-css">
+<code class="language-css"> 	 
+	.row .three{
+	  padding: 80px 30px;
+	  -webkit-box-sizing: border-box;
+	  -moz-box-sizing: border-box;
+	  box-sizing: border-box;
+	  background-color: #2c3e50;
+	  color: #ecf0f1;
+	  text-align: center;
+	}
+
+	.hamburger .line{
+	  width: 50px;
+	  height: 5px;
+	  background-color: #ecf0f1;
+	  display: block;
+	  margin: 8px auto;
+	  -webkit-transition: all 0.2s ease-in-out;
+	  -o-transition: all 0.2s ease-in-out;
+	  transition: all 0.2s ease-in-out;
+	}
+
+	.hamburger:hover{
+	  cursor: pointer;
+	}
+
+	#hamburger.is-active{
+	  -webkit-transition: all 0.2s ease-in-out;
+	  -o-transition: all 0.2s ease-in-out;
+	  transition: all 0.2s ease-in-out;
+	  -webkit-transition-delay: 0.4s;
+	  -o-transition-delay: 0.4s;
+	  transition-delay: 0.4s;
+	  -webkit-transform: rotate(45deg);
+	  -ms-transform: rotate(45deg);
+	  -o-transform: rotate(45deg);
+	  transform: rotate(45deg);
+	}
+
+	#hamburger.is-active .line:nth-child(2){
+	  width: 0px;
+	}
+
+	#hamburger.is-active .line:nth-child(1),
+	#hamburger.is-active .line:nth-child(3){
+	  -webkit-transition-delay: 0.2s;
+	  -o-transition-delay: 0.2s;
+	  transition-delay: 0.2s;
+	}
+
+	#hamburger.is-active .line:nth-child(1){
+	  -webkit-transform: translateY(13px);
+	  -ms-transform: translateY(13px);
+	  -o-transform: translateY(13px);
+	  transform: translateY(13px);
+	}
+
+	#hamburger.is-active .line:nth-child(3){
+	  -webkit-transform: translateY(-13px) rotate(90deg);
+	  -ms-transform: translateY(-13px) rotate(90deg);
+	  -o-transform: translateY(-13px) rotate(90deg);
+	  transform: translateY(-13px) rotate(90deg);
+	}
+</code>
+</pre>
+
+</div>
+<div class="back">
+		<a href="http://parandis.ca/projects.html">
+			<i class="fa fa-arrow-circle-left" aria-hidden="true"></i>
+		</a>
+</div>	
+</main>
+
+
+<footer>
+		<div class="contact" id="contact">
+				<p><h1>Contact</h1><br>If you would like to contact me, feel free to email:<br><br><a href="mailto:parandists@gmail.com">
+				parandists@gmail.com</a><br><br>
+				Also you can follow me on following social media:</p>
+				<div class="social-media">
+				<a href="https://www.linkedin.com/in/parandis-t-saheli/" target="_blank">
+					<i class="fa fa-linkedin-square" aria-hidden="true"></i>
+				</a>
+				
+				<a href="https://www.github.com/Parandis/" target="_blank">
+					<i class="fa fa-github" aria-hidden="true"></i>
+				</a>
+				
+				<a href="https://codepen.io/Parandis/" target="_blank">
+					<i class="fa fa-codepen" aria-hidden="true"></i>
+				</a>
+				
+				<a href="https://twitter.com/parandists" target="_blank">
+					<i class="fa fa-twitter-square" aria-hidden="true"></i>
+				</a>
+				</div>
+		</div>
+</footer>
+<script
+  src="https://code.jquery.com/jquery-3.2.1.min.js"
+  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  crossorigin="anonymous"></script>
+  <script src="scripts/prism.js"></script>
+<script src="scripts/script.js"></script>	
+</body>
+</html>

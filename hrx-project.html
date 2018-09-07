@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Parandis T. Saheli</title>
+		<link href="https://fonts.googleapis.com/css?family=Lobster|Raleway" rel="stylesheet">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+		<link rel="stylesheet" type="text/css" href="styles/style.css">
+		<link rel="stylesheet" type="text/css" href="styles/style-projects.css">
+		<link rel="stylesheet" type="text/css" href="styles/prism.css">
+		<!-- Global site tag (gtag.js) - Google Analytics -->
+		<script async src="https://www.googletagmanager.com/gtag/js?id=UA-109128378-1"></script>
+		<script>
+				(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+				(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+				m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+				})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+			  
+				ga('create', 'UA-102160523-1', 'auto');
+				ga('send', 'pageview');
+		</script>
+</head>
+<body>
+
+<main>
+<div class="project" id="project">
+<h1>HRx Technology</h1>
+<h2>Bias Test App</h2>
+
+<img class="project client" src="images/hrx.jpg" alt="client project screenshot">
+
+<p class="info">This Project was a small project for a startup company name HRx Technology who provide services and technology solutions to interrupt unconscious bias in the workplace. The app is based on Harvard University research on bias test. We tried to develop the app more user friendly and has nice interface to attract users and give the company some data and informations. The app developed in a group of four, three front end developers and one back end developer, using Reactjs and Contentful CMS; All the information comes through API from contentful.</p>
+<a href="https://hrx-biastest.firebaseapp.com/" target="_blank">Visit Live</a>	
+
+<p>Since the design of website wasn't so complicated, so we started right by Mock-ups and using HRx brand style guide and follow that for designs.Our main goal was to keep it so simple and easy to use. Our plan was to have 20 questions in each block(compatible and incompatible) which we had a explanation page in between two kind of tests.</p>
+
+<div class="hrx-shot">
+	<div class="home-page">
+	<img  src="images/home-page.png" alt="client project screenshot">
+	<figcaption>Home Page</figcaption>
+	</div>
+
+	<div class="result-page">
+	<img  src="images/result-page.png" alt="client project screenshot">
+	<figcaption>Result Page</figcaption>
+	</div>
+</div>
+<p>The most important thing for result is the time that user takes to answer questions, storing it, and send it back to database for calculating the result. For this purpose we should have known if the user's answer was correct or wrong, so it moves forward with questions and reset timing for next one.</p>
+<pre class="language-js">
+<code class="language-js">
+	checkAnswer(key) {
+			if (key === this.state.currentQuestion.correctKey) {
+				// measure the time
+				let stopTime = performance.now();
+				let timeTaken = stopTime - this.state.startTime;
+				if (key === 'ArrowLeft') {
+					let l = this.state.leftTimes;
+					l.push(timeTaken);
+					this.setState({
+						leftTimes: l
+					})
+				} else {
+					let r = this.state.rightTimes;
+					r.push(timeTaken);
+					this.setState({
+						rightTimes: r
+					})
+				}
+				// move question forward by one if it is not finished.
+				let i = this.state.currentQuestionIndex + 1;
+				if (i === this.state.questions.length) {
+					this.testFinished(this.state.leftTimes, this.state.rightTimes);
+				} else {
+					let currentQuestion = this.state.questions[i];
+					this.setState({
+						isAnswerCorrect: true,
+						currentQuestion: currentQuestion,
+						currentQuestionIndex: i,
+						startTime: performance.now() // Start timer again
+					});
+				}
+			} else {
+				this.setState({
+					isAnswerCorrect: false
+				})
+			}
+	}
+</code>
+</pre>
+
+
+
+</div>
+<div class="back">
+	<a href="http://parandis.ca/projects.html">
+		<i class="fa fa-arrow-circle-left" aria-hidden="true"></i>
+	</a>
+</div>
+
+</main>
+
+<footer>
+		<div class="contact" id="contact">
+				<p><h1>Contact</h1><br>If you would like to contact me, feel free to email:<br><br><a href="mailto:parandists@gmail.com">
+				parandists@gmail.com</a><br><br>
+				Also you can follow me on following social media:</p>
+				<div class="social-media">
+				<a href="https://www.linkedin.com/in/parandis-t-saheli/" target="_blank">
+					<i class="fa fa-linkedin-square" aria-hidden="true"></i>
+				</a>
+				
+				<a href="https://www.github.com/Parandis/" target="_blank">
+					<i class="fa fa-github" aria-hidden="true"></i>
+				</a>
+				
+				<a href="https://codepen.io/Parandis/" target="_blank">
+					<i class="fa fa-codepen" aria-hidden="true"></i>
+				</a>
+				
+				<a href="https://twitter.com/parandists" target="_blank">
+					<i class="fa fa-twitter-square" aria-hidden="true"></i>
+				</a>
+				</div>
+		</div>
+</footer>
+<script
+  src="https://code.jquery.com/jquery-3.2.1.min.js"
+  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  crossorigin="anonymous"></script>
+  <script src="scripts/prism.js"></script>
+<script src="scripts/script.js"></script>	
+</body>
+</html>

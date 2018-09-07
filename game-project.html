@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Parandis T. Saheli</title>
+		<link href="https://fonts.googleapis.com/css?family=Lobster|Raleway" rel="stylesheet">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+		<link rel="stylesheet" type="text/css" href="styles/style.css">
+		<link rel="stylesheet" type="text/css" href="styles/style-projects.css">
+		<link rel="stylesheet" type="text/css" href="styles/prism.css">		
+		<!-- Global site tag (gtag.js) - Google Analytics -->
+		<script async src="https://www.googletagmanager.com/gtag/js?id=UA-109128378-1"></script>
+		<script>
+				(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+				(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+				m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+				})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+			  
+				ga('create', 'UA-102160523-1', 'auto');
+				ga('send', 'pageview');
+		</script>
+</head>
+<body>
+<main>
+
+<div class="project" id="project">
+<h2>Game</h2>
+<img class="project game" src="images/game-project.png" alt="game project screenshot">	
+<p class="info">One of the funnest project during school!!!!! A challenge to develop and design a game using JavaScript/jQery. This game is a twist on the Whack-A-Mole game with lots of added features such as difficulty selection and the ability for the user to enter their name. This game has a timer for 20 seconds and every time player hit the ball, the ball will change to another ball and the score increases. The challenge about this project was to animate ball in different directions which makes the game a little bit harder and of course there is no hint for player to be ready for that challenge.   </p>	
+<a href="http://parandis.ca/projects/Game/index.html" target="_blank">Visit Live</a>
+
+<p>For making the game more challenging, I decided to add two different classes, top and bottom,which made balls move in two opposite direction. For gaining this result, the balls are in position absolute and having a transition to move up or down.</p>
+<pre class="language-markup">
+<code class="language-markup">
+<script type="prism-html-markup">
+	<div class="row">
+		<div class="box">
+			<img src="images/Pink_Ball.png" alt="ball" class="ball-pic top">
+			<img src="images/Pink_Ball.png" alt="ball" class="ball-pic bottom">
+		</div><!-- end box -->
+		<div class="box">
+			<img src="images/Pink_Ball.png" alt="ball" class="ball-pic top">
+			<img src="images/Pink_Ball.png" alt="ball" class="ball-pic bottom">
+		</div><!-- end box -->
+		<div class="box">
+			<img src="images/Pink_Ball.png" alt="ball" class="ball-pic top">
+			<img src="images/Pink_Ball.png" alt="ball" class="ball-pic bottom">				
+		</div><!-- end box -->
+		<div class="box">
+			<img src="images/Pink_Ball.png" alt="ball" class="ball-pic top">
+			<img src="images/Pink_Ball.png" alt="ball" class="ball-pic bottom">
+		</div><!-- end box -->
+	</div><!-- end row -->
+</script></code>
+</pre>
+<p>Because the balls should shows up randomly then we need to generate a random time to determine how long the moles stay up and randomly selects one of the moles to display which is throught the code below:</p>
+<pre class="language-js">
+<code class="language-js">
+	_randomTime(min, max){
+		return Math.round(Math.random() * (max - min) + min);
+	}
+	
+	_randomBox(boxes) {
+    	const idx = Math.floor(Math.random() * this.numOfBoxes);
+    	const box = boxes.eq(idx);
+    	if (idx === this.prevBoxNumber) {
+      		console.log('...same ball...try again...');
+      		return this._randomBox(boxes);
+    	}
+		this.prevBoxNumber = idx;
+			console.log(idx);
+    	return box;
+	}	
+</code>
+</pre>
+<p>The code below shows how the ball change when player get that and adding a score the player to show on the score board.</p>
+<pre class="language-js">
+<code class="language-js">
+	bonk(box) {
+		box.children().attr('src', this.boxBonkedImg.src)
+				.end()
+				.removeClass('show')
+		    .addClass('bonked')
+		    .one('transitionend', () => {
+					box.children().attr('src', this.boxImgSrc);
+					box.removeClass('bonked');
+			});
+		  this.score++;
+    	this.scoreOut.text(this.score);
+    	
+	}	
+</code>
+</pre>
+
+</div>
+<div class="back">
+		<a href="http://parandis.ca/projects.html">
+			<i class="fa fa-arrow-circle-left" aria-hidden="true"></i>
+		</a>
+</div>
+</main>
+
+<footer>
+		<div class="contact" id="contact">
+				<p><h1>Contact</h1><br>If you would like to contact me, feel free to email:<br><br><a href="mailto:parandists@gmail.com">
+				parandists@gmail.com</a><br><br>
+				Also you can follow me on following social media:</p>
+				<div class="social-media">
+				<a href="https://www.linkedin.com/in/parandis-t-saheli/" target="_blank">
+					<i class="fa fa-linkedin-square" aria-hidden="true"></i>
+				</a>
+				
+				<a href="https://www.github.com/Parandis/" target="_blank">
+					<i class="fa fa-github" aria-hidden="true"></i>
+				</a>
+				
+				<a href="https://codepen.io/Parandis/" target="_blank">
+					<i class="fa fa-codepen" aria-hidden="true"></i>
+				</a>
+				
+				<a href="https://twitter.com/parandists" target="_blank">
+					<i class="fa fa-twitter-square" aria-hidden="true"></i>
+				</a>
+				</div>
+		</div>
+</footer>
+<script
+  src="https://code.jquery.com/jquery-3.2.1.min.js"
+  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  crossorigin="anonymous"></script>
+  <script src="scripts/prism.js"></script>
+<script src="scripts/script.js"></script>	
+</body>
+</html>
